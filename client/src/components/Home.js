@@ -1,10 +1,11 @@
 import React from 'react';
 import axios from 'axios';
+import { baseurl } from '../util/baseurl';
 
 class Home extends React.Component {
 
   componentDidMount = () => {
-    axios.get('http://swapi.co/api/people/1/')
+    axios.get(`${baseurl}people/1/`)
       .then( response => {
         console.log(response.data);
       })
