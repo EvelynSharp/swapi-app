@@ -1,11 +1,11 @@
 import React from 'react';
-
-import { baseurl } from '../util/baseurl';
+import { getAllPeople } from '../actions/people';
+import { connect } from 'react-redux';
 
 class People extends React.Component {
 
   componentDidMount = () => {
-
+    this.props.dispatch( getAllPeople() );
   }
 
   render() {
@@ -16,5 +16,8 @@ class People extends React.Component {
   }
 }
 
+const mapStateToProps = (state, props) => {
+  return { people: state.people }
+}
 
-export default People;
+export default connect()(People);

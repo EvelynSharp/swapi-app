@@ -5,7 +5,7 @@ import { baseurl } from '../util/baseurl';
 class Home extends React.Component {
 
   componentDidMount = () => {
-    axios.get(`${baseurl}people/1/`)
+    axios.get(`${baseurl}people/`)
       .then( response => {
         console.log(response.data);
       })

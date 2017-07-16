@@ -1,7 +1,13 @@
-// export const getEvents = () => {
-//   return(dispatch) => {
-//     fetch('/api/events')
-//       .then( res => res.json() )
-//       .then( events => dispatch({ type: 'GET_EVENTS', events}))
-//   }
-// }
+
+import axios from 'axios';
+
+export const getAllPeople = () => {
+  return(dispatch) => {
+    console.log('hit')
+    axios.get(`/api/people/all`)
+      .then( res => console.log(res.data) )
+      .catch( error => {
+        console.log(error);
+      });
+  }
+}
