@@ -4,7 +4,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/change-me');
+mongoose.connect('mongodb://localhost/swapi-app');
 
 const app = express();
 
