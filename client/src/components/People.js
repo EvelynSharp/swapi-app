@@ -1,11 +1,11 @@
 import React from 'react';
-import { getAllPeople } from '../actions/people';
+import { getExamplePeople } from '../actions/people';
 import { connect } from 'react-redux';
 
 class People extends React.Component {
 
   componentDidMount = () => {
-    this.props.dispatch( getAllPeople() );
+    this.props.dispatch( getExamplePeople() );
   }
 
   render() {

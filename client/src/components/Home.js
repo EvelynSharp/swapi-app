@@ -5,7 +5,7 @@ import { baseurl } from '../util/baseurl';
 class Home extends React.Component {
 
   componentDidMount = () => {
-    axios.get(`${baseurl}people/`)
+    axios.get(`${baseurl}people/1/`)
       .then( response => {
         console.log(response.data);
       })
@@ -14,9 +14,11 @@ class Home extends React.Component {
       });
   }
 
+
   render() {
     return(
       <div>
+       <button > test </button>
       </div>
     )
   }

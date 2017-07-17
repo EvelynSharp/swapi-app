@@ -1,11 +1,10 @@
 
 import axios from 'axios';
 
-export const getAllPeople = () => {
+export const getExamplePeople = () => {
   return(dispatch) => {
-    console.log('hit')
-    axios.get(`/api/people/all`)
-      .then( res => console.log(res.data) )
+    axios.get(`/api/people/example`)
+      .then( res => { dispatch({ type: 'EXAMP_PEOPLE', exampPeople: res.data}) } )
       .catch( error => {
         console.log(error);
       });

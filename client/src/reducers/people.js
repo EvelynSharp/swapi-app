@@ -1,7 +1,7 @@
 const people = (state = [], action) => {
   switch(action.type) {
-    case 'ALL_PEOPLE':
-      return action.allpeople
+    case 'EXAMP_PEOPLE':
+      return action.exampPeople
     default:
       return state;
   }
