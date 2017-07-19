@@ -1,6 +1,7 @@
 import React from 'react';
 import { getExamplePeople } from '../actions/people';
 import { connect } from 'react-redux';
+import PeopleList from './PeopleList';
 
 class People extends React.Component {
 
@@ -10,14 +11,11 @@ class People extends React.Component {
 
   render() {
     return(
-      <div> Hello
+      <div>
+        <PeopleList />
       </div>
     )
   }
-}
-
-const mapStateToProps = (state, props) => {
-  return { people: state.people }
 }
 
 export default connect()(People);
