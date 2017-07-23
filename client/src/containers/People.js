@@ -1,7 +1,8 @@
 import React from 'react';
 import { getExamplePeople } from '../actions/people';
 import { connect } from 'react-redux';
-import PeopleList from './PeopleList';
+import PeopleList from '../components/PeopleList';
+import SearchedPeopleList from '../components/SearchedPeopleList';
 import PeopleSearch from './PeopleSearch';
 
 class People extends React.Component {
@@ -21,9 +22,9 @@ class People extends React.Component {
       <div>
         <PeopleSearch startSearch={this.startSearch}/>
         {this.state.search?
-            <div>changed</div>
+            <SearchedPeopleList peopleSearch={this.props.people}/>
           :
-            <PeopleList />
+            <PeopleList peopleExample={this.props.people}/>
         }
 
       </div>
@@ -31,4 +32,8 @@ class People extends React.Component {
   }
 }
 
-export default connect()(People);
+const mapStateToProps = (state) => {
+  return { people: state.people }
+}
+
+export default connect(mapStateToProps)(People);

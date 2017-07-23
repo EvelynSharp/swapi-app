@@ -17,3 +17,12 @@ body {
   margin: auto;
   width: 80%;
 }
+
+.searched-people-list {
+  width: 60%;
+  margin-left: 29%;
+}
+
+.searched-people-list span {
+  margin-right: 2em;
+}
