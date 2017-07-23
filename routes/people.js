@@ -32,16 +32,12 @@ router.get('/example', (req, res) => {
 router.get('/search', (req, res) => {
   let { term } = req.query;
   console.log(term);
-
-  // axios.get(`${baseurl}${peopleNums[i]}/`)
-  //   .then( people => { result.push(people.data)})
-  //   .then( () => {
-  //     if(result.length === 3) { res.json(result) }
-  //   })
-  //   .catch( err => console.log(err))
-  // }
-
-
+  // axios.get(`http://swapi.co/api/people/?search=Skywalker`)
+  //   .then( people => console.log(people.data ) )
+  //   .catch( err => console.log(err) )
+  axios.get(`${baseurl}?search=${term}`)
+    .then( people => res.json(people.data.results ) )
+    .catch( err => console.log(err) )
 });
 
 
