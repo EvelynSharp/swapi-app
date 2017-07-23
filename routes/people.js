@@ -26,7 +26,20 @@ router.get('/example', (req, res) => {
   //   console.log(peopleData);
   // })
 
+});
 
+
+router.get('/search', (req, res) => {
+  let { term } = req.query;
+  console.log(term);
+
+  // axios.get(`${baseurl}${peopleNums[i]}/`)
+  //   .then( people => { result.push(people.data)})
+  //   .then( () => {
+  //     if(result.length === 3) { res.json(result) }
+  //   })
+  //   .catch( err => console.log(err))
+  // }
 
 
 });

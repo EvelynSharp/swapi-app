@@ -5,12 +5,14 @@ import { connect } from 'react-redux';
 
 const PeopleList = ( {peopleExample} ) => {
   return (
-    <Card.Group itemsPerRow={3} >
-      { peopleExample.map( (person, index) => {
-          return <PeopleListItem key={index} person={person}/>
-        })
-      }
-    </Card.Group>
+    <div className="people-list">
+      <Card.Group itemsPerRow={3} >
+        { peopleExample.map( (person, index) => {
+            return <PeopleListItem key={index} person={person}/>
+          })
+        }
+      </Card.Group>
+    </div>
   )
 }
 
