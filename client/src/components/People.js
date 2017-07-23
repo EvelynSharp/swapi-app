@@ -6,15 +6,26 @@ import PeopleSearch from './PeopleSearch';
 
 class People extends React.Component {
 
+  state = { search: false }
+
   componentDidMount = () => {
     this.props.dispatch( getExamplePeople() );
+  }
+
+  startSearch = () => {
+    this.setState({search:true})
   }
 
   render() {
     return(
       <div>
-        <PeopleSearch />
-        <PeopleList />
+        <PeopleSearch startSearch={this.startSearch}/>
+        {this.state.search?
+            <div>changed</div>
+          :
+            <PeopleList />
+        }
+
       </div>
     )
   }

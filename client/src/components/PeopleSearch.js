@@ -12,8 +12,8 @@ class PeopleSearch extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.dispatch( searchPeople(this.state.term) );
-
+    this.props.startSearch();
+    this.props.dispatch( searchPeople(this.state.term) );    
   }
 
   render() {
