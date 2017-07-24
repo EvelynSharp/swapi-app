@@ -2,12 +2,14 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import People from './containers/People';
+import Person from './containers/Person';
 
 const App = () => (
   <div>
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/people" component={People} />
+      <Route exact path="/people/:id" component={Person} />
     </Switch>
   </div>
 );

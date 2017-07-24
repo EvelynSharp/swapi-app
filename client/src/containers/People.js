@@ -22,7 +22,7 @@ class People extends React.Component {
       <div>
         <PeopleSearch startSearch={this.startSearch}/>
         {this.state.search?
-            <SearchedPeopleList peopleSearch={this.props.people}/>
+            <SearchedPeopleList peopleSearch={this.props.people} history={this.props.history}/>
           :
             <PeopleList peopleExample={this.props.people}/>
         }
