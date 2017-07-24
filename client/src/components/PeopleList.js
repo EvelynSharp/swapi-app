@@ -1,5 +1,6 @@
 import React from 'react';
 import PeopleListItem from './PeopleListItem';
+import _ from 'lodash';
 import { Card } from 'semantic-ui-react';
 
 const PeopleList = ( {peopleExample} ) => {
@@ -7,7 +8,7 @@ const PeopleList = ( {peopleExample} ) => {
     <div className="people-list">
     {peopleExample &&
       <Card.Group itemsPerRow={3} >
-        { peopleExample.map( (person, index) => {
+        { _.map(peopleExample, (person, index) => {
             return <PeopleListItem key={index} person={person}/>
           })
         }

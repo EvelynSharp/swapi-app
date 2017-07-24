@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 import { List } from 'semantic-ui-react';
 
 const SearchPeopleList = ({peopleSearch, history}) => {
@@ -6,7 +7,7 @@ const SearchPeopleList = ({peopleSearch, history}) => {
     <div className='searched-people-list'>
       <List divided relaxed >
         { peopleSearch &&
-          peopleSearch.map( person => {
+          _.map(peopleSearch, person => {
             let id = person.url.replace(/^\D+/g, '');
             return (
               <List.Content key={person.name} onClick={() => history.push(`/people/${id}`)}>
