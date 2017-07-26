@@ -1,11 +1,12 @@
 import React from 'react';
 import { Card, Grid } from 'semantic-ui-react';
 
-const PeopleListItem = ( {person} ) => {
+const PeopleListItem = ( {person, history} ) => {
+  let id = person.url.replace(/^\D+/g, '');
 
   return(
     <Card>
-      <Card.Content>
+      <Card.Content onClick={() => history.push(`/people/${id}`)}>
         <Card.Header>{person.name}</Card.Header>
         <Card.Meta>{person.gender}</Card.Meta>
         <Card.Description>

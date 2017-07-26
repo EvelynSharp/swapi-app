@@ -24,7 +24,7 @@ class People extends React.Component {
         {this.state.search?
             <SearchedPeopleList peopleSearch={this.props.people} history={this.props.history}/>
           :
-            <PeopleList peopleExample={this.props.people}/>
+            <PeopleList peopleExample={this.props.people} history={this.props.history}/>
         }
 
       </div>

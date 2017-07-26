@@ -41,4 +41,13 @@ router.get('/search', (req, res) => {
 });
 
 
+router.get('/search/:id', (req, res) => {
+  axios.get(`${baseurl}${req.params.id}/`)
+    .then( person => res.json(person.data ))
+    .catch( err => console.log(err))
+})
+
+
+
+
 module.exports = router;
