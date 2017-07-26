@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import People from './containers/People';
 import Person from './containers/Person';
+import Planet from './containers/Planet';
 
 const App = () => (
   <div>
@@ -10,6 +11,7 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Route exact path="/people" component={People} />
       <Route exact path="/people/:id" component={Person} />
+      <Route exact path="/planets/:id" component={Planet} />
     </Switch>
   </div>
 );

@@ -17,7 +17,8 @@ class Person extends React.Component {
   }
 
   render() {
-    let { person, planet } = this.props;
+    let { person, planet, history } = this.props;
+    let homeId = person && person.homeworld.replace(/^\D+/g, '');
     return (
       <div>
         { person ?
@@ -25,7 +26,10 @@ class Person extends React.Component {
               <div>Name: { person.name } </div>
               <div>Gender: { person.gender } </div>
               <div>Birth Year: { person.birth_year } </div>
-              <div>Homeland: { planet? planet.name : '' } </div>
+              <div>Homeland: <span style={{ textDecoration: 'underline'}} onClick={ () => history.push(`/planets/${homeId}`) }>
+                  { planet? planet.name : '' }
+                </span>
+              </div>
             </div>
           :
           <div> Loading ... </div>
