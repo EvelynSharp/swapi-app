@@ -20,8 +20,9 @@ class Planet extends React.Component {
   displayResidents = () => {
     let { residents, planet, history } = this.props;
     if ( !_.isEmpty(residents) && !_.isEmpty(planet) ) {
+      let check = planet.residents.filter( r => residents[r] )
+      if( check.length !== planet.residents.length) { return null }
       return planet.residents.map( r => {
-        if ( !residents[r]) { return null}
         let id = residents[r].url.replace(/^\D+/g, '');
         return (
           <List.Item key={r} onClick={ () => history.push(`/people/${id}`)}>
