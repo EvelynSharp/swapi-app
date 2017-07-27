@@ -8,11 +8,15 @@ class Person extends React.Component {
   componentDidMount = () => {
     if(!this.props.person) {
       this.props.dispatch( searchPerson(this.props.match.params.id, this.getHomeland) );
+    } else {
+      this.getHomeland();
     }
+
   }
 
   getHomeland = () => {
     let homeId = this.props.person.homeworld.replace(/^\D+/g, '');
+    console.log(homeId)
     this.props.dispatch( fetchHome(homeId) )
   }
 
