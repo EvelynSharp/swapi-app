@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { EXAMP_PEOPLE, SEARCH_PEOPLE, SEARCH_PERSON } from '../actions/people';
+import { EXAMP_PEOPLE, SEARCH_PEOPLE, SEARCH_PERSON, FETCH_RESIDENTS } from '../actions/people';
 
 
 const people = (state = {}, action) => {
@@ -10,6 +10,8 @@ const people = (state = {}, action) => {
       return _.mapKeys(action.searchPeople, 'url')
     case SEARCH_PERSON:
       return { ...state, [action.searchPerson.url]: action.searchPerson }
+    case FETCH_RESIDENTS:
+      return _.mapKeys(action.residents, 'url')
     default:
       return state;
   }

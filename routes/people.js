@@ -48,6 +48,23 @@ router.get('/search/:id', (req, res) => {
 })
 
 
+router.get('/residents', (req, res) => {
+  const { residentsUrls } = req.query;
+  const residentCounts = residentsUrls.length;
+  const residents = []
+  const promises = []
+  residentsUrls.forEach( url => {
+    promises.push(axios.get(url))
+  })
+
+  axios.all(promises)
+    .then( result => {
+      let people = result.map( r => r.data)
+      res.json(people)
+    })
+})
+
+
 
 
 module.exports = router;

@@ -26,7 +26,7 @@ class Person extends React.Component {
               <div>Name: { person.name } </div>
               <div>Gender: { person.gender } </div>
               <div>Birth Year: { person.birth_year } </div>
-              <div>Homeland: <span style={{ textDecoration: 'underline'}} onClick={ () => history.push(`/planets/${homeId}`) }>
+              <div>Homeland: <span style={{ textDecoration: 'underline', cursor: 'pointer'}} onClick={ () => history.push(`/planets/${homeId}`) }>
                   { planet? planet.name : '' }
                 </span>
               </div>
