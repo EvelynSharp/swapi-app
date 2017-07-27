@@ -17,11 +17,14 @@ class Planet extends React.Component {
   }
 
   displayResidents = () => {
-    let { residents, planet } = this.props;
+    let { residents, planet, history } = this.props;
     if ( !_.isEmpty(residents) && !_.isEmpty(planet) ) {
       return planet.residents.map( r => {
+        let id = residents[r].url.replace(/^\D+/g, '');
         return (
-          <li key={r}> { residents[r].name } </li>
+          <li key={r} onClick={ () => history.push(`/people/${id}`)}>
+            { residents[r].name }
+          </li>
         )
       })
     }
