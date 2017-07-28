@@ -15,15 +15,16 @@ const requireSignin = passport.authenticate('local', { session: false });
 router.get('/', requireAuth, (req, res) => {
     res.send({ hi: 'there'})
   })
-router.post('/signin', requireSignin, () => signin());
-
+router.post('/signin', requireSignin, (req, res, next) => {
+  console.log(req)
+  res.send({ token: tokenForUser(req.user) });
+});
 
 router.post('/signup', (req, res, next) => {
   let { email, password } = req.body.params;
   if (!email || !password ) {
     return res.status(422).send({ error: 'You must provide email and password'});
   }
-
   User.findOne({ email: email }, (err, existingUser) => {
     if (err) { return next(err); }
     if (existingUser) {
@@ -47,9 +48,6 @@ tokenForUser = (user) => {
   return jwt.encode( { sub: user.id, iat: timestamp }, config.secret );
 }
 
-signin = (req, res, next) => {
-  res.send({ token: tokenForUser(req.user) });
-}
 
 
 module.exports = router;

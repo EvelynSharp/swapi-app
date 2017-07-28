@@ -1,5 +1,7 @@
 import React from 'react';
 import { Header, Form, Button, Message } from 'semantic-ui-react';
+import { signin } from '../actions/auth';
+import { connect } from 'react-redux';
 
 class Login extends React.Component {
   defaults = {
@@ -19,6 +21,8 @@ class Login extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    let { email, password } = this.state;
+    this.props.dispatch(signin( email, password ));
   }
 
   render() {
@@ -59,4 +63,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default connect()(Login);
