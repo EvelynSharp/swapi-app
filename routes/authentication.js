@@ -15,10 +15,11 @@ const requireSignin = passport.authenticate('local', { session: false });
 router.get('/', requireAuth, (req, res) => {
     res.send({ hi: 'there'})
   })
+
 router.post('/signin', requireSignin, (req, res, next) => {
-  console.log(req)
-  res.send({ token: tokenForUser(req.user) });
+  res.json({ token: tokenForUser(req.user) });
 });
+
 
 router.post('/signup', (req, res, next) => {
   let { email, password } = req.body.params;

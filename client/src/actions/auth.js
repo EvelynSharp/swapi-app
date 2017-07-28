@@ -14,13 +14,8 @@ export const signup = (email, password) => {
 
 export const signin = (email, password) => {
   return(dispatch) => {
-    axios.post(`/api/auth/signin`, { params: { email, password } })
-      .then( res => {
-        console.log(res)
-      })
+    axios.post(`/api/auth/signin`, { email, password })
+      .then( res => console.log('x'))
       .catch( error => console.log(error))
   }
 }
-
-
-//res.data.token
