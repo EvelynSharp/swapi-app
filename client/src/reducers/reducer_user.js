@@ -1,6 +1,8 @@
+import { USER } from '../actions/auth';
+
 const user = (state = {}, action) => {
   switch(action.type) {
-    case 'USER':
+    case USER:
       return action.user
     default:
       return state;
