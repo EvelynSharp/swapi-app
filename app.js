@@ -10,6 +10,7 @@ const app = express();
 
 const people = require('./routes/people');
 const planets = require('./routes/planets');
+const authentication = require('./routes/authentication');
 
 
 app.use(logger('dev'));
@@ -20,6 +21,7 @@ app.use(express.static(path.resolve(__dirname, './client/build')));
 
 app.use('/api/people', people);
 app.use('/api/planets', planets);
+app.use('/api/auth', authentication);
 
 app.get('*', (request, response) => {
    response.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));

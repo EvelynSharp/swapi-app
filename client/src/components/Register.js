@@ -1,5 +1,7 @@
 import React from 'react';
 import { Header, Form, Button, Message } from 'semantic-ui-react';
+import { signup } from '../actions/auth';
+import { connect } from 'react-redux';
 
 class Register extends React.Component {
   defaults = {
@@ -19,6 +21,8 @@ class Register extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    let { email, password } = this.state;
+    this.props.dispatch(signup( email, password ));
   }
 
   render() {
@@ -59,4 +63,4 @@ class Register extends React.Component {
   }
 }
 
-export default Register;
+export default connect()(Register);
