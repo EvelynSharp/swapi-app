@@ -1,17 +1,24 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
+import NavBar from './components/NavBar';
+import Login from './components/Login';
+import Register from './components/Register';
 import People from './containers/People';
 import Person from './containers/Person';
 import Planet from './containers/Planet';
 
+
 const App = () => (
   <div>
+    <NavBar />
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/people" component={People} />
       <Route exact path="/people/:id" component={Person} />
       <Route exact path="/planets/:id" component={Planet} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/register" component={Register} />
     </Switch>
   </div>
 );
